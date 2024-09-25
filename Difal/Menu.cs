@@ -72,7 +72,7 @@ namespace Difal.Menu
             int destino = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
-            double aliquotaDestino;
+            
             string? origemDestino;
 
             switch (destino)
@@ -85,24 +85,21 @@ namespace Difal.Menu
                     origemDestino = "Padrão"; break;
             }
 
-            double aliquotaEscolhaDest;
+            double aliquotaDestino;
 
             switch (origemDestino)
             {
-                case "RJ": aliquotaEscolhaDest = 22; break;
-                case "SP": aliquotaEscolhaDest = 12; break;
-                case "ES": aliquotaEscolhaDest = 17; break;
-                case "MG": aliquotaEscolhaDest = 18; break;
-                default:
-                    aliquotaEscolhaDest = 0; break;
+                case "RJ": aliquotaDestino = 22; break;
+                case "SP": aliquotaDestino = 12; break;
+                case "ES": aliquotaDestino = 17; break;
+                case "MG": aliquotaDestino = 18; break;
+                default: aliquotaDestino = 0; ; break;
             }
 
+            double aliquotaDifal = aliquotaDestino - aliquotaEscolha;
+            double valorDifal = (aliquotaDifal * valorProduto) / 100;
 
-
-
-
-
-            Console.WriteLine($"{origem}, {origemEscolha},{aliquotaEscolha},{destino},{origemDestino}, {aliquotaEscolhaDest}");
+            Console.WriteLine($"O DIfal entre {origemEscolha} e {origemDestino} é de R$ {valorDifal}");
 
 
 
