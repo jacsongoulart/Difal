@@ -21,7 +21,7 @@ namespace Difal.Menu
             Console.Clear();
             Console.Title = " Calculadora de Difal";
             
-Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------- Calculadora de Difal (Partilha 100%) -----------------");
             Console.WriteLine();
             Console.WriteLine(" Qual o valor total do produto? Ex. 0,00");
