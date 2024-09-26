@@ -14,16 +14,18 @@ namespace Difal.Menu
 {
     public class Menu
     {
-
+        
 
         static public void Start()
         {
             Console.Clear();
+            Console.Title = " Calculadora de Difal";
             
-            Console.WriteLine("------------- Calculadora de Difal -----------------");
+Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("------------- Calculadora de Difal (Partilha 100%) -----------------");
             Console.WriteLine();
-            Console.WriteLine("Qual o valor total do produto?");
-            double valorProduto = double.Parse(Console.ReadLine());
+            Console.WriteLine(" Qual o valor total do produto? Ex. 0,00");
+            decimal valorProduto = decimal.Parse(Console.ReadLine());
             Console.WriteLine();
 
             Console.WriteLine("Qual estado de origem?");
@@ -36,7 +38,7 @@ namespace Difal.Menu
             int origem = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
-            double aliquotaOrigem;
+            decimal aliquotaOrigem;
             string? origemEscolha;
 
             switch (origem)
@@ -49,7 +51,7 @@ namespace Difal.Menu
                     origemEscolha = "Padrão"; break;
             }
 
-            double aliquotaEscolha;
+            decimal aliquotaEscolha;
 
             switch (origemEscolha)
             {
@@ -85,7 +87,7 @@ namespace Difal.Menu
                     origemDestino = "Padrão"; break;
             }
 
-            double aliquotaDestino;
+            decimal aliquotaDestino;
 
             switch (origemDestino)
             {
@@ -96,10 +98,22 @@ namespace Difal.Menu
                 default: aliquotaDestino = 0; ; break;
             }
 
-            double aliquotaDifal = aliquotaDestino - aliquotaEscolha;
-            double valorDifal = (aliquotaDifal * valorProduto) / 100;
+            decimal aliquotaDifal;
 
-            Console.WriteLine($"O DIfal entre {origemEscolha} e {origemDestino} é de R$ {valorDifal}");
+            if (aliquotaEscolha > aliquotaDestino) 
+            {
+                aliquotaDifal = aliquotaEscolha - aliquotaDestino;
+            } else
+            {
+                aliquotaDifal = aliquotaDestino - aliquotaEscolha;
+            }
+
+
+
+            
+            decimal valorDifal = aliquotaDifal * valorProduto / 100;
+
+            Console.WriteLine($"O DIfal entre {origemEscolha} e {origemDestino} é de R$ {Math.Round(valorDifal,2)}");
 
 
 
