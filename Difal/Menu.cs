@@ -37,29 +37,25 @@ namespace Difal.Menu
             Console.WriteLine();
 
             double aliquotaOrigem;
-            string? origemEscolha;
 
-            switch (origem)
+            string? origemEscolha = origem switch
             {
-                case 1: origemEscolha = "RJ"; break;
-                case 2: origemEscolha = "SP"; break;
-                case 3: origemEscolha = "ES"; break;
-                case 4: origemEscolha = "MG"; break;
-                default:
-                    origemEscolha = "Padrão"; break;
-            }
+                1 => origemEscolha = "RJ",
+                2 => origemEscolha = "SP",
+                3 => origemEscolha = "ES",
+                4 => origemEscolha = "MG",
+                _ => origemEscolha = "Padrão"
 
-            double aliquotaEscolha;
+            };
 
-            switch (origemEscolha)
+            double aliquotaEscolha = origemEscolha switch
             {
-                case "RJ": aliquotaEscolha = 22; break;
-                case "SP": aliquotaEscolha = 12; break;
-                case "ES": aliquotaEscolha = 17; break;
-                case "MG": aliquotaEscolha = 18; break;
-                default:
-                    aliquotaEscolha = 0; break;
-            }
+                "RJ" => aliquotaEscolha = 22,
+                "SP" => aliquotaEscolha = 12,
+                "ES" => aliquotaEscolha = 17,
+                "MG" => aliquotaEscolha = 18,
+                 _   => aliquotaEscolha = 0
+            };
 
 
             Console.WriteLine("Qual estado de destino?");
@@ -72,29 +68,25 @@ namespace Difal.Menu
             int destino = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
-            
-            string? origemDestino;
 
-            switch (destino)
+            string? origemDestino = destino switch
             {
-                case 1: origemDestino = "RJ"; break;
-                case 2: origemDestino = "SP"; break;
-                case 3: origemDestino = "ES"; break;
-                case 4: origemDestino= "MG"; break;
-                default:
-                    origemDestino = "Padrão"; break;
-            }
+                1 => origemDestino = "RJ",
+                2 => origemDestino = "SP",
+                3 => origemDestino = "ES",
+                4 => origemDestino = "MG",
+                _ => origemDestino = "Padrão"
+            };
 
-            double aliquotaDestino;
 
-            switch (origemDestino)
+            double aliquotaDestino = origemDestino switch
             {
-                case "RJ": aliquotaDestino = 22; break;
-                case "SP": aliquotaDestino = 12; break;
-                case "ES": aliquotaDestino = 17; break;
-                case "MG": aliquotaDestino = 18; break;
-                default: aliquotaDestino = 0; ; break;
-            }
+                "RJ" => aliquotaDestino = 22,
+                "SP" => aliquotaDestino = 12,
+                "ES" => aliquotaDestino = 17,
+                "MG" => aliquotaDestino = 18,
+                _ => aliquotaDestino = 0
+            };
 
             double aliquotaDifal = aliquotaDestino - aliquotaEscolha;
             double valorDifal = (aliquotaDifal * valorProduto) / 100;
