@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Xml;
 using Difal.DB;
 
 
@@ -88,10 +89,18 @@ namespace Difal.Menu
                 _ => aliquotaDestino = 0
             };
 
+            
+            
             double aliquotaDifal = aliquotaDestino - aliquotaEscolha;
             double valorDifal = (aliquotaDifal * valorProduto) / 100;
 
+            
             Console.WriteLine($"O DIfal entre {origemEscolha} e {origemDestino} é de R$ {valorDifal}");
+            
+
+            
+            
+            
 
 
 
